@@ -1,0 +1,21 @@
+// Items File
+// 
+// Add here Items ...
+// Note: You have to set values between their sizes.
+// [Name]	> ( A - Z , a - z , 0 - 9 )
+// [Group]	> ( A - Z , a - z , 0 - 9 )
+// [Hero]	> ( A - Z , a - z , 0 - 9 )
+// [Type]	> ( 0 - Skin , 1 - Hat , 2 - Weapon )
+// [Rarity]	> ( 0 - Common , 1 - Uncommon , 2 - Rare , 3 - Mythical , 4 - Legendary )
+// [IMG]	> ( Image name and format e.g. stormtrooper.bmp )
+//
+// e.g #item
+//
+
+//[Add Item] : [Name] : [Group] : [Hero] : [Type] : [Rarity] : [IMG]
+#item : hat Common : standart : StormTrooper : 1 : 0 : 1.png
+#item : hat Uncommon : standart : StormTrooper : 1 : 1 : 17.png
+#item : hat Rare : standart : StormTrooper : 1 : 2 : 20.png
+#item : hat Mythical : standart : StormTrooper : 1 : 3 : 20.png
+#item : hat Legendary : standart : StormTrooper : 1 : 4 : 20.png
+#item : hat Birthday : birthday : StormTrooper : 1 : 0 : 20.png

@@ -1,0 +1,37 @@
+// Heroes File
+//
+// Add Heroes Here ...
+// Note: You have to set values between their sizes.
+// [Name]			> ( A - Z , a - z , 0 - 9 )
+// [Affiliation]		> ( Republic ; Empire )
+// [Class]			> ( Offense ; Defense ; Support )
+// [Health]			> ( 75 - 250 )
+// [Barrier]			> ( 0 - 250 )
+// [Speed]			> ( - ) 15
+// [Item(s)]			> ( 1 - 100 ) ( For IDs check "weapon IDs.txt" file ) e.g. 4,32,51
+// [Skin]           		> ( Images name file )
+//
+// e.g. #hero : Trooper : Republic : Offense : 175 : 201: 5
+//
+
+//[Add Hero] : [Name] : [Affiliation] : [Class] : [Health] : [Barrier] : [Speed] : [Item(s)] : [Skin]
+// Troopers (Assault)
+#hero : StormTrooper : Empire : Offense : 150 : 25 : 5 : 32 : stormtrooper.bmp
+#hero : Rebel : Republic : Offense : 150 : 0 : 5 : 32 : 
+// Light Sabers and Force Power (Jedi and Sith)
+#hero : Sith Warrior : Empire : Offense : 175 : 0 : 7 : 50 : sith.bmp
+#hero : Jedi Knight : Republic : Offense : 175 : 0 : 7 : 50 : 
+// Snipers
+#hero : Marksman : Empire : Defense : 100 : 25 : 5 : 35 : marksman.bmp
+#hero : Bounty Hunter : Republic : Offense : 75 : 25 : 5 : 35 : 
+// Engineers
+#hero : Gear Master : Empire : Defense : 125 : 25 : 2 : 24 : 
+#hero : Tinkerer : Republic : Defense : 125 : 0 : 2 : 24 :
+// Assassins
+#hero : Imperial Agent : Empire : Defense : 125 : 0 : 5 : 35,21 : 
+#hero : Smuggler : Republic : Defense : 150 : 0 : 5 : 24 : 
+// Healers
+#hero : Imperial Medic : Empire : Support : 125 : 0 : 5 : 6 :
+#hero : Combat Medic : Republic : Support : 125 : 0 : 5 : 6 : 
+// Tanks
+//#hero : Guardian : Republic : Defense : 175 : 25 : 5 : 50 :

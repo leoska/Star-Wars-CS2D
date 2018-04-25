@@ -1,0 +1,32 @@
+===[[ Version 0.1 ]]===
+
+1. StormTrooper (Skills):
+	1. Grenade cd : 15 sec
+	2. 
+2. Rebel (Skills):
+	1. FireBomb
+	2. Self-Heal ¬осстанавливает себе 25 хп (Ќельз€ использовать в бою). cd : 17 sec
+3. Sith Warrior (Skills):
+	1. Deflect - отражает все лазеры
+	2. Saber Throw - бросок лазерного меча
+4. Jedi Knight (Skills):
+	1. Deflect - отражает все лазеры
+	2. Sever Force - ќслабл€ет цель приковыва€ к месту(уменьша€ скорость передвижени€) на 2 сек
+5. Marksman (Skills):
+	1. Powerful Shot (+ 40%dmg on shot) cd: 8 sec
+	2. Poison Mine (Debuff) - ќслабл€ет цель, уменьша€ скорость передвижени€ на 20% и увеличивает разброс
+6. Bounty Hunter (Skills):
+	1. Weakening blast (Debuff + 30%dmg on shot) cd: 12 sec
+7. Gear Master (Skills):
+	1. Barrier Supply
+	2. Droid Turret
+8. Tinkerer (Skills):
+	1. 
+9. Imperial Agent (Skills):
+	1.
+10. Smuggler (Skills):
+	1. (Chewbacca's) Bowcaster 
+11. Combat Medic (Skills):
+	1. 
+12. Imperial Medic (Skills):
+	1. 

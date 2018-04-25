@@ -1,0 +1,14 @@
+// Loot Boxes File
+// 
+// Add here Loot Boxes ...
+// Note: You have to set values between their sizes.
+// [Name]	> ( A - Z , a - z , 0 - 9 )
+// [Group]	> ( A - Z , a - z , 0 - 9 )
+// [Drop]	> ( 1 - on ; 0 - off )
+//
+// e.g. #box : Loot Box : standart : 1
+//
+
+//[Add Boxes] : [Name] : [Group] : [Drop]
+#box : Loot Box : standart : 1
+#box : Loot Box2 : birthday : 1

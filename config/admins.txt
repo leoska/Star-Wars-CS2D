@@ -1,0 +1,7 @@
+//
+// Add here USGN ID's or Steam ID for to grant administrator permissions
+//
+// e.g. 5910
+//
+5910
+6647

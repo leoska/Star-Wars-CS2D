@@ -1,0 +1,76 @@
+=== Weapon ID's List
+
+items = (101 - 109)
+
+1 - USP
+2 - Glock
+3 - Deagle
+4 - P228
+5 - Elite
+6 - Five-Seven
+10 - M3
+11 - XM1014
+20 - MP5
+21 - TMP
+22 - P90
+23 - Mac 10
+24 - UMP45
+30 - AK-47
+31 - SG552
+32 - M4A1
+33 - Aug
+34 - Scout
+35 - AWP
+36 - G3SG1
+37 - SG550
+38 - Galil
+39 - Famas
+40 - M249
+41 - Tactical Shield
+45 - Laser
+46 - Flamethrower
+47 - RPG Launcher
+48 - Rocket Launcher
+49 - Grenade Launcher
+50 - Knife
+51 - HE
+52 - Flashbang
+53 - Smoke Grenade
+54 - Flare
+55 - Bomb
+56 - Defuse Kit
+57 - Kevlar
+58 - Kevlar+Helm
+59 - Night Vision
+60 - Gas Mask
+61 - Primary Ammo
+62 - Secondary Ammo
+63 - Planted Bomb
+64 - Medikit
+65 - Bandage
+66 - Coins
+67 - Money
+68 - Gold
+69 - Machete
+70 - Red Flag
+71 - Blue Flag
+72 - Gas Grenade
+73 - Molotov Cocktail
+74 - Wrench
+75 - Snowball
+76 - Air Strike
+77 - Mine
+78 - Claw
+79 - Light Armor
+80 - Armor
+81 - Heavy Armor
+82 - Medic Armor
+83 - Super Armor
+84 - Stealth Suit
+85 - Chainsaw
+86 - Gut Bomb
+87 - Laser Mine
+88 - Portal Gun
+89 - Satchel Charge
+90 - M134
+91 - FN F2000
