@@ -649,20 +649,24 @@ function sw.hud_interface_update(id)
 	local col1, col2, col3, col4 = "©128255000", "©000255000", "©255255255", "©128166255"
 	local class = sw.heroes[sw.p_class[id]]
 	local wpos, hpos = player(id, "screenw"), player(id, "screenh")
+	local x, y = 0, 0
 	if (#sw.p_interface[id] < 1) then
 		-- Mask for HP bar
 		local img = image("gfx/sw/pixel.bmp<n>", 0, 0, 2, id)
 		imagecolor(img, 0, 0, 0)
 		imagescale(img, 150, 60)
-		imagepos(img, wpos / 2, hpos - 90, 0)
+		x = wpos / 2
+		y = hpos - 90
+		imagepos(img, x, y, 0)
 		imagealpha(img, 0.5)
 		table.insert(sw.p_interface[id], img)
 
 		-- Mask for classes HUD
-		local x, y = wpos * 1.5 / 2, hpos - 90
 		img = image("gfx/sw/pixel.bmp<n>", 0, 0, 2, id)
 		imagecolor(img, 0, 0, 0)
 		imagescale(img, 50 * #sw.heroesinterface[sw.p_class[id]], 70)
+		x = wpos * 1.5 / 2
+		y = hpos - 90
 		imagepos(img, x, y, 0)
 		imagealpha(img, 0.5)
 		table.insert(sw.p_interface[id], img)
@@ -677,11 +681,14 @@ function sw.hud_interface_update(id)
 		end
 	end
 
-	parse(string.format("hudtxt2 %d %d \"%s\" %d %d %d", id, 10, col1.."Class: "..class[1], wpos / 2 - 65, hpos - 120, 0))
+	x = wpos / 2 - 65
+	y = hpos - 120
+	parse(string.format("hudtxt2 %d %d \"%s\" %d %d %d", id, 10, col1.."Class: "..class[1], x, y, 0))
+	y = hpos - 105
 	if (sw.p_barrier[id] > 0) then
-		parse(string.format("hudtxt2 %d %d \"%s\" %d %d %d", id, 11, col1.."Health: "..sw.p_health[id]..""..col3.."("..col4..""..sw.p_barrier[id]..""..col3..")"..col1.."/"..class[4], wpos / 2 - 65, hpos - 105, 0))
+		parse(string.format("hudtxt2 %d %d \"%s\" %d %d %d", id, 11, col1.."Health: "..sw.p_health[id]..""..col3.."("..col4..""..sw.p_barrier[id]..""..col3..")"..col1.."/"..class[4], x, y, 0))
 	else
-		parse(string.format("hudtxt2 %d %d \"%s\" %d %d %d", id, 11, col1.."Health: "..sw.p_health[id].."/"..class[4], wpos / 2 - 65, hpos - 105, 0))
+		parse(string.format("hudtxt2 %d %d \"%s\" %d %d %d", id, 11, col1.."Health: "..sw.p_health[id].."/"..class[4], x, y, 0))
 	end
 	sw.hud_interface_hpbar(id)
 	--parse(string.format("hudtxt2 %d %d \"%s\" %d %d %d", p, 11, col1.."Health: ", 20, 455, 0))

@@ -237,16 +237,25 @@ function sw.menu(id, title, but)
 end
 
 function sw.spawn(id)
-	if (player(id, "bot")) then
-		sw.p_times[id]["edge"] = true
-		--parse("speedmod "..id.." -100")
-		msg("Edge bot is true")
-	end
-
 	if (sw.p_subclass[id] == 0) then
-		local col1 = "©128255255"
-		sw.p_subclass[id] = 1
-		msg2(id, col1.."The class was automatically selected: "..sw.heroes[sw.p_subclass[id]][1])
+		if (player(id, "bot")) then
+			local rnd = 0
+			if (player(id, "team") == 1) then
+				rnd = math.floor(math.random(1, #sw.heroesempire))
+				sw.p_subclass[id] = sw.heroesempire[rnd]["classid"]
+			elseif (player(id, "team") == 2) then
+				rnd = math.floor(math.random(1, #sw.heroesrepublic))
+				sw.p_subclass[id] = sw.heroesrepublic[rnd]["classid"]
+			end
+		else
+			local col1 = "©128255255"
+			if (player(id, "team") == 1) then
+				sw.p_subclass[id] = sw.heroesempire[1]["classid"]
+			elseif (player(id, "team") == 2) then
+				sw.p_subclass[id] = sw.heroesrepublic[1]["classid"]
+			end
+			msg2(id, col1.."The class was automatically selected: "..sw.heroes[sw.p_subclass[id]][1])
+		end
 	end
 
 	local hero, i, str = sw.p_subclass[id], 0, ""
