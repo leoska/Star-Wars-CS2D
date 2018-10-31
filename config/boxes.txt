@@ -11,4 +11,3 @@
 
 //[Add Boxes] : [Name] : [Group] : [Drop]
 #box : Loot Box : standart : 1
-#box : Loot Box2 : birthday : 1

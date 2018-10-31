@@ -18,4 +18,3 @@
 #item : hat Rare : standart : StormTrooper : 1 : 2 : 20.png
 #item : hat Mythical : standart : StormTrooper : 1 : 3 : 20.png
 #item : hat Legendary : standart : StormTrooper : 1 : 4 : 20.png
-#item : hat Birthday : birthday : StormTrooper : 1 : 0 : 20.png
