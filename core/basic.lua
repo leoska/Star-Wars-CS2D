@@ -25,6 +25,7 @@ function sw.endround(mode)
 end
 
 function sw.always()
+	local speedlaser = 5 -- Msecs
 	for j, las in pairs(sw.p_lasers) do
 		if ((tile(math.floor(las["x"] / 32), math.floor(las["y"] / 32), "wall")) or (las["livetime"] > 50)) then
 			sw.destroylaser(j)
@@ -54,13 +55,14 @@ function sw.always()
 
 						sw.p_times[p]["edge"] = false
 					else
+						sw.hit(p, las["player"], las["wpn"], las["dmg"])
 						sw.destroylaser(j)
 					end
 				end
 			end
 
-			tween_move(las["imgid"], 10, las["x"], las["y"], las["rot"])
-			tween_move(las["lightid"], 10, las["x"], las["y"])
+			tween_move(las["imgid"], speedlaser, las["x"], las["y"], las["rot"])
+			tween_move(las["lightid"], speedlaser, las["x"], las["y"])
 		end
 	end
 
@@ -238,14 +240,23 @@ end
 
 function sw.spawn(id)
 	if (player(id, "bot")) then
-		sw.p_times[id]["edge"] = true
-		--parse("speedmod "..id.." -100")
-		msg("Edge bot is true")
+		local rnd = 0
+		if (player(id, "team") == 1) then
+			rnd = math.floor(math.random(1, #sw.heroesempire))
+			sw.p_subclass[id] = sw.heroesempire[rnd]["classid"]
+		elseif (player(id, "team") == 2) then
+			rnd = math.floor(math.random(1, #sw.heroesrepublic))
+			sw.p_subclass[id] = sw.heroesrepublic[rnd]["classid"]
+		end
 	end
 
 	if (sw.p_subclass[id] == 0) then
 		local col1 = "©128255255"
-		sw.p_subclass[id] = 1
+		if (player(id, "team") == 1) then
+			sw.p_subclass[id] = sw.heroesempire[1]["classid"]
+		elseif (player(id, "team") == 2) then
+			sw.p_subclass[id] = sw.heroesrepublic[1]["classid"]
+		end
 		msg2(id, col1.."The class was automatically selected: "..sw.heroes[sw.p_subclass[id]][1])
 	end
 
@@ -282,14 +293,15 @@ function sw.spawn(id)
 
 	sw.p_times[id]["knife"] = knife
 
+
 	-- Skin
 	if (sw.p_set[id]["skin"] > 0) then
 		if (file_exists("gfx/sw/items/"..sw.items[sw.p_set[id]["skin"]][6])) then
 			local img = sw.items[sw.p_set[id]["skin"]][6]
 			sw.p_herskin[id] = image("gfx/sw/items/"..img.."<m>", 3, 0, 200 + id)
 		end
-	elseif (sw.heroes[hero][8] ~= nil) then
-		if (file_exists("gfx/sw/player"..sw.heroes[hero][8])) then
+	elseif (sw.heroes[hero][8] ~= "") then
+		if (file_exists("gfx/sw/player/"..sw.heroes[hero][8])) then
 			local img = sw.heroes[hero][8]
 			sw.p_herskin[id] = image("gfx/sw/player/"..img.."<m>", 3, 0, 200 + id)
 		end
@@ -343,7 +355,7 @@ function sw.leave(id, reason)
 		freeimage(sw.p_herskin[id])
 		sw.p_herskin[id] = nil
 	end
-	if (sw.p_herhat[id]) ~= nil) then
+	if (sw.p_herhat[id] ~= nil) then
 		freeimage(sw.p_herhat[id])
 		sw.p_herhat[id] = nil
 	end
@@ -375,8 +387,9 @@ function sw.hit(id, source, weapon, hpdmg)
 		-- Kill player
 		if (sw.p_health[id] < 1) then
 			sw.p_health[id] = 0
+			parse('customkill '..source..' "DC-15a" '..id)
 			--[[ Need rework!!!!!!!! ]]--
-			if (weapon == 32) then
+			--[[if (weapon == 32) then
 				parse('customkill '..source..' "DC-15a" '..id)
 			elseif (weapon == 50) then
 				parse('customkill '..source..' "Lightsaber" '..id)
@@ -388,7 +401,8 @@ function sw.hit(id, source, weapon, hpdmg)
 				parse('customkill '..source..' "DC-15x" '..id)
 			elseif (weapon == 21) then
 				parse('customkill '..source..' "DC-15x" '..id)
-			end
+			end]]
+
 			sw.destroysaber(id)
 			sw.hud_interface_clear(id)
 
@@ -396,12 +410,16 @@ function sw.hit(id, source, weapon, hpdmg)
 				freeimage(sw.p_herskin[id])
 				sw.p_herskin[id] = nil
 			end
-			if (sw.p_herhat[id]) ~= nil) then
+			if (sw.p_herhat[id] ~= nil) then
 				freeimage(sw.p_herhat[id])
 				sw.p_herhat[id] = nil
 			end
 		end	
 	end
+	--return 1 (New func for hook "Hit" -----> {sw.hitting})
+end
+
+function sw.hitting()
 	return 1
 end
 
@@ -449,7 +467,7 @@ function sw.die(id)
 		freeimage(sw.p_herskin[id])
 		sw.p_herskin[id] = nil
 	end
-	if (sw.p_herhat[id]) ~= nil) then
+	if (sw.p_herhat[id] ~= nil) then
 		freeimage(sw.p_herhat[id])
 		sw.p_herhat[id] = nil
 	end
