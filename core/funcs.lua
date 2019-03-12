@@ -436,8 +436,9 @@ end
 function sw.HudAddIndicator(idhud, fname)
 	if (file_exists("gfx/sw/hud/"..fname)) then
 		local stata = "<spritesheet:gfx/sw/hud/"..fname..":32:32:<n>>"
-		print("CLASS: "..sw.listenerclass)
 		table.insert(sw.heroesinterface[sw.listenerclass], idhud, stata)
+	else
+		print("File gfx/sw/hud/"..fname.." is not exists!")
 	end
 end
 

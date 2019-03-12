@@ -1,6 +1,7 @@
----------------------------
--- Update Functions File --
----------------------------
+--------------------------------
+-- Update Functions File 	  --
+-- Use Encoding: Windows 1252 --
+--------------------------------
 
 --[[function string.split(t, sub, ms)
 	if t == nil or t == "" then return {t} end
