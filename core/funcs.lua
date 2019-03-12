@@ -1,6 +1,7 @@
-------------------------------
--- Secondary Functions File --
-------------------------------
+--------------------------------
+-- Secondary Functions File   --
+-- Use Encoding: Windows 1252 --
+--------------------------------
 
 --[[ Menu Functions ]]--
 
@@ -385,7 +386,6 @@ function sw.hud_interface_update(id)
 		imagepos(img, x, y, 0)
 		imagealpha(img, 0.5)
 		table.insert(sw.p_interface[id], img)
-		print(x.." "..y)
 
 		-- Classes HUD
 		local mx = #sw.heroesinterface[sw.p_class[id]]
@@ -434,19 +434,15 @@ function sw.hud_interface_clear(id)
 end
 
 function sw.HudAddIndicator(idhud, fname)
-	if (file_exists("gfx/sw/"..fname)) then
+	if (file_exists("gfx/sw/hud/"..fname)) then
 		local stata = "<spritesheet:gfx/sw/hud/"..fname..":32:32:<n>>"
 		table.insert(sw.heroesinterface[sw.listenerclass], idhud, stata)
+	else
+		print("File gfx/sw/hud/"..fname.." is not exists!")
 	end
 end
 
 function sw.HudSetIndicator(id, idhud, frame, text)
-	-- Debug info (don't show CLASS HUD)
-	--[[for _, p in sw.p_interface[id] do
-		print(p)
-	end]]--
-	print(#sw.p_interface[id])
-
 	if (#sw.p_interface[id] > 1) then
 		if (sw.p_interface[id][2 + idhud] ~= nil) then
 			local wpos, hpos = player(id, "screenw"), player(id, "screenh")
