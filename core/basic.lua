@@ -252,7 +252,7 @@ function sw.spawn(id)
 	end
 
 	if (sw.p_subclass[id] == 0) then
-		local col1 = "ï¿½128255255"
+		local col1 = "©128255255"
 		if (player(id, "team") == 1) then
 			sw.p_subclass[id] = sw.heroesempire[1]["classid"]
 		elseif (player(id, "team") == 2) then
@@ -297,22 +297,28 @@ function sw.spawn(id)
 
 	-- Skin
 	if (sw.p_set[id]["skin"] > 0) then
-		if (file_exists("gfx/sw/items/"..sw.items[sw.p_set[id]["skin"]][6])) then
-			local img = sw.items[sw.p_set[id]["skin"]][6]
-			sw.p_herskin[id] = image("gfx/sw/items/"..img.."<m>", 3, 0, 200 + id)
+		local img = sw.items[sw.p_set[id]["skin"]][6]
+		if (img ~= nil) then
+			if (file_exists("gfx/sw/items/"..img)) then
+				sw.p_herskin[id] = image("gfx/sw/items/"..img.."<m>", 3, 0, 200 + id)
+			end
 		end
 	elseif (sw.heroes[hero][8] ~= "") then
-		if (file_exists("gfx/sw/player/"..sw.heroes[hero][8])) then
-			local img = sw.heroes[hero][8]
-			sw.p_herskin[id] = image("gfx/sw/player/"..img.."<m>", 3, 0, 200 + id)
+		local img = sw.heroes[hero][8]
+		if (img ~= nil) then
+			if (file_exists("gfx/sw/player/"..img)) then
+				sw.p_herskin[id] = image("gfx/sw/player/"..img.."<m>", 3, 0, 200 + id)
+			end
 		end
 	end
 
 	-- Hat
 	if (sw.p_set[id]["hat"] > 0) then
-		if (file_exists("gfx/sw/items/"..sw.items[sw.p_set[id]["hat"]][6])) then
-			local img = sw.items[sw.p_set[id]["hat"]][6]
-			sw.p_herhat[id] = image("gfx/sw/items/"..img.."<m>", 3, 0, 200 + id)
+		local img = sw.items[sw.p_set[id]["hat"]][6]
+		if (img ~= nil) then
+			if (file_exists("gfx/sw/items/"..sw.items[sw.p_set[id]["hat"]][6])) then
+				sw.p_herhat[id] = image("gfx/sw/items/"..img.."<m>", 3, 0, 200 + id)
+			end
 		end
 	end
 
@@ -339,8 +345,8 @@ function sw.team(id, t)
 	end
 	sw.hud_interface_clear(id)
 	local wpos = player(id, "screenw")
-	local col1 = "ï¿½238130238"
-	local col2 = "ï¿½127199255"
+	local col1 = "©238130238"
+	local col2 = "©127199255"
 	parse(string.format("hudtxt2 %d %d \"%s\" %d %d %d", id, 0, col1.."Star Wars v"..version.debug, wpos / 2, 20, 1))
 	parse(string.format("hudtxt2 %d %d \"%s\" %d %d %d", id, 1, col2..""..game("sv_name"), wpos / 2, 40, 1))
 end
@@ -432,7 +438,7 @@ function sw.say(id, txt)
 	-- Show Top (GrandMaster League)
 	elseif (txt == "!top") then
 		local top = sw.get_rank_table()
-		local col1 = "ï¿½255128128"
+		local col1 = "©255128128"
 		msg2(id, col1.."=== Top "..sw_ampls_grandmaster.." ===")
 		for i = 1, sw_ampls_grandmaster do
 			if (top[i] ~= nil) then
@@ -441,8 +447,8 @@ function sw.say(id, txt)
 		end
 		return 1
 	elseif (checkadmin(id)) then
-		local col1 = "ï¿½204255000"
-		local col2 = "ï¿½125249255"
+		local col1 = "©204255000"
+		local col2 = "©125249255"
 		msg(col1..""..player(id, "name").." (Admin): "..col2..""..txt)
 		return 1
 	end

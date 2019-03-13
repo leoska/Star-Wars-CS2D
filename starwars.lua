@@ -19,7 +19,7 @@ sw = {}
 --[[ Global Values ]]--
 minutes = 0
 seconds = 0
-version = { release = 0, patch = 0, debug = "0.898a" }
+version = { release = 0, patch = 0, debug = "0.8.9a" }
 admins = {} -- Admins list
 adverts = {} -- Adverts list
 maps = {} -- Map list
