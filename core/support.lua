@@ -173,7 +173,7 @@ function sw.load_scripts()
 	sw.listenerclass = nil
 end
 
---[[ Get Functions ]]--
+--[[ Parsing Functions ]]--
 
 function sw.get_table_boxes(line)
 	local load_string = string.split(line, ":")
@@ -198,6 +198,9 @@ function sw.get_table_boxes(line)
 				else -- Other may be tonumber.
 					table.insert(stata, tonumber(ln[1]))
 				end
+			else
+				-- If there is no data
+				table.insert(stata, nil)
 			end
 		end
 	end
@@ -227,6 +230,9 @@ function sw.get_table_items(line)
 				else -- Other may be tonumber.
 					table.insert(stata, tonumber(ln[1]))
 				end
+			else
+				-- If there is no data
+				table.insert(stata, nil)
 			end
 		end
 	end
@@ -248,7 +254,7 @@ function sw.get_table_heroes(line)
 					if (#items > 0) then
 						table.insert(stata, items)
 					else
-						-- Error here
+						-- Error here (default items here)
 					end
 				--[[elseif (i > 7) then -- Skills
 					local skill = {}
@@ -271,6 +277,9 @@ function sw.get_table_heroes(line)
 						table.insert(stata, tonumber(ln[1]))
 					end
 				end
+			else
+				-- If there is no data
+				table.insert(stata, nil)
 			end
 		end
 	end

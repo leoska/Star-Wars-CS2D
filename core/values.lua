@@ -1,5 +1,5 @@
 --------------------------------
---  Valuables File 			  --
+-- Valuables File 			  --
 -- Use Encoding: Windows 1252 --
 --------------------------------
 
